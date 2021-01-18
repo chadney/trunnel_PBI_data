@@ -1,0 +1,89 @@
+{
+
+    "sorting": {
+
+        "default": {}
+    },
+
+    "dataRoles": [
+        {
+            "displayName": "Category",
+            "name": "category",
+            "kind": "Grouping",
+            "requiredTypes": [
+                {
+                    "text": true
+                },
+                {
+                    "numeric": true
+                }
+            ],
+            "description": "Category"
+        },
+        {
+            "displayName": "Sort By",
+            "name": "sortBy",
+            "kind": "Grouping",
+            "requiredTypes": [
+                {
+                    "text": true
+                },
+                {
+                    "numeric": true
+                }
+            ],
+            "description": "Sort by"
+        },
+        {
+            "displayName": "Measure",
+            "name": "measure",
+            "kind": "Measure",
+            "description": "Measure"
+        }
+    ],
+    "dataViewMappings": [
+        
+        
+        {
+
+            "conditions": [
+
+                {
+                    "category": {
+                        "max": 1
+                    },
+                    "sortBy": {
+                        "max": 1
+                    },
+                    "measure": {
+                        "max": 1
+                    }
+                }
+            ],
+
+            "categorical": {
+                "categories": {
+                    "select": [
+                        {
+                            "bind": {
+                                "to": "category"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "sortBy"
+                            }
+                        }
+                    ]
+                },
+                "values": {
+                    "bind": {
+                        "to": "measure"
+                    }
+                }
+            }
+        }
+        
+    ]
+    
+}
